@@ -1,0 +1,15 @@
+name: Run Orchestrator
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Message to echo through the pipeline"
+        required: true
+        type: string
+
+jobs:
+  call-orchestrator:
+    uses: israoo/pipecraft-workflows/.github/workflows/orchestrator.yml@v1
+    with:
+      message: ${{ inputs.message }}
